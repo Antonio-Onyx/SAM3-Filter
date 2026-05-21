@@ -23,14 +23,6 @@ Gaussian blur applied over detected faces.
 
 ---
 
-### Green Screen
-
-Original background replaced with a solid green background. The segmented subject is preserved intact.
-
-<video src="https://github.com/user-attachments/assets/7ceebb62-18e4-43aa-a43e-f778524446ff" controls width="640"></video>
-
----
-
 ### Silhouette
 
 A purple outline is drawn around the segmented subject, with a soft purple tint applied over the subject region while keeping them visible.
