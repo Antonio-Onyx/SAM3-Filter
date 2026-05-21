@@ -1,10 +1,10 @@
 # SAM3 Privacy Filter
 
-Video privacy pipeline built on **SAM 2.1** (Segment Anything Model) that detects and segments people or faces in video using natural language prompts, then applies visual effects over the segmented regions frame by frame.
+Video privacy pipeline built on **SAM 3** (Segment Anything Model) that detects and segments people or faces in video using natural language prompts, then applies visual effects over the segmented regions frame by frame.
 
 ## How it works
 
-1. **Segmentation** — Each frame is passed through SAM 2.1 with a text prompt (`"face, glasses"`, `"person"`, etc.). The model returns pixel-level masks for every detected region matching the prompt.
+1. **Segmentation** — Each frame is passed through SAM 3 with a text prompt (`"face, glasses"`, `"person"`, etc.). The model returns pixel-level masks for every detected region matching the prompt.
 2. **Mask composition** — All masks returned for a frame are merged into a single alpha mask using a logical OR, so overlapping detections (e.g. face + glasses) are handled correctly.
 3. **Effect application** — The composite mask is used to apply a visual effect only over the segmented region. The rest of the frame is left untouched.
 4. **Batch processing** — Frames are buffered in batches (default: 8) and processed together to take advantage of GPU throughput.
@@ -17,7 +17,7 @@ The effect pipeline is modular — each effect is an independent function that r
 
 ### Blur
 
-Gaussian blur applied over detected faces, including glasses region.
+Gaussian blur applied over detected faces.
 
 <video src="https://github.com/user-attachments/assets/505ce059-466f-4597-9ae7-e0933fef1070" controls width="640"></video>
 
